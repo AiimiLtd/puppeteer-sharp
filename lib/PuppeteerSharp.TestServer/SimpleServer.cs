@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -61,7 +61,7 @@ namespace PuppeteerSharp.TestServer
                     {
                         OnPrepareResponse = fileResponseContext =>
                         {
-                            if (_csp.TryGetValue(fileResponseContext.Context.Request.Path, out var csp))
+                            if (_csp.TryGetValue(fileResponseContext.Context.Request.Path, out string csp))
                             {
                                 fileResponseContext.Context.Response.Headers["Content-Security-Policy"] = csp;
                             }
